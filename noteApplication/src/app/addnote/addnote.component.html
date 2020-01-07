@@ -1,0 +1,62 @@
+<!--
+<h3>{{userName}}</h3>
+<div style="padding-top: 5%;">
+    
+<h6 style="margin-top: 25px;text-align: center;font-family: Georgia, 'Times New Roman', Times, serif;">please add your notes below</h6>
+<input type="text"  style="border: 1px solid black; height: 150px; width: 50%;margin-left: 26%;margin-top: 30px;"> 
+<button  class="btn btn-block btn-success" type="submit" (click)="notesData()" style="width: 20%; margin-left: 40%; margin-top: 20px;">Submit</button>
+</div>   -->
+
+
+
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+      <div class="col-md-6 mx-auto">  
+        <div class="card mx-4">  
+          <div class="card-body p-4"> 
+             <!--  {{logIn.value | json}}  -->  
+            <form #addnote = "ngForm" >  
+              <div class="form-group">
+              <h1 style="text-align:center">Add Note!</h1>    
+              
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="Username"  
+                            name="userNameDisplay"
+                            required
+                            [(ngModel)]="user.userName"
+                            #userName="ngModel"
+                            [class.is-invalid]="userName.invalid && userName.touched"
+                            pattern="[a-zA-Z ]*"  
+                            
+                            > 
+                            <span *ngIf="userName.invalid && userName.touched" class= "input-group-addon">
+                                <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+
+                
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="Note"  
+                            name="noteDisplay"
+                            required
+                            [(ngModel)]="notesModelForm.notes"
+                            #notes="ngModel"
+                            [class.is-invalid]="notes.invalid && notes.touched"
+                            pattern="[a-zA-Z 0-9 $%^&*()@#!]*"  
+                            style=" height: 100px; width: 100%;margin-top: 5px;"
+                            > 
+                            <span *ngIf="notes.invalid && notes.touched" class= "input-group-addon">
+                                <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+            
+              <button type="submit" (click)="notesData()"  
+              
+              [disabled] = "addnote.form.invalid" class="btn btn-block btn-success">Submit</button>  
+            </div>
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  

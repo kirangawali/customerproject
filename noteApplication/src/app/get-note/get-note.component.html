@@ -1,0 +1,116 @@
+
+<div class="panel panel-default card-5">
+    <div class=""> 
+        <div class="panel-heading main-panel card-5" >
+         <div style="padding-left:10px; color: black;">
+            Home Section
+         </div>
+           
+         </div>
+
+         <div class="panel-heading custom-panel card-5">  <div >
+             
+
+                <table style="width:100%;" class="table  table-stripped">
+                    <thead>
+                        <tr style="background-color: gainsboro">
+                                <td  style="width:10%" class="tdCss">
+                                        User Name
+                                </td>
+                                <td  style="width:10%" class="tdCss">
+                                    Note
+                                </td>
+                              
+                                <td  style="width:10%">
+                                    
+                               </td>
+                        </tr>
+                    </thead>
+                </table>
+                </div>
+                <div class="" style="height:500px;overflow-y: auto; border: 1px solid black">
+                    <table style="width:100%;" class="table  table-stripped">
+                    <tbody>
+                        <tr *ngFor="let i of notesDataa">
+                            {{i|json}}
+                            <td  style="width:40%" class="tdData">
+                                   {{ i.userName}}
+                            </td>
+                            <td  style="width:40%" class="tdData">
+                                {{ i.notes}}
+                         </td>
+
+                         <td  style="width:10%">
+                            <button (click)=" updateData(i)" class="btn btn-success">Update</button>
+                       </td>
+                            <td  style="width:10%">
+                                 <button (click)=" deleteNoteEntry(i)" class="btn btn-danger">Delete</button>
+                            </td>
+                            
+                    </tr>
+            
+                    </tbody>
+            
+                </table>
+              <div>
+         </div>
+    </div> 
+  </div>
+
+  <br>
+
+ 
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+      <div class="col-md-6 mx-auto">  
+        <div class="card mx-4">  
+          <div class="card-body p-4"> 
+             <!--  {{logIn.value | json}}  -->
+            <form #getnote = "ngForm" >  
+              <div class="form-group">
+              <h1 style="text-align:center">Update Note!</h1>    
+              
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="Username"  
+                            name="userNameDisplay"
+                            required disabled
+                            [(ngModel)]="updateModelForm.userName"
+                            #userName="ngModel"
+                            [class.is-invalid]="userName.invalid && userName.touched"
+                            pattern="[a-zA-Z ]*"  
+                            
+                            > 
+                            <span *ngIf="userName.invalid && userName.touched" class= "input-group-addon">
+                                <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+
+                
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="NewNote"  
+                            name="noteDisplay"
+                            required
+                            [(ngModel)]="updateModelForm.notes"
+                            #notes="ngModel"
+                            [class.is-invalid]="notes.invalid && notes.touched"
+                            pattern="[a-zA-Z 0-9 $%^&*()@#!]*"  
+                            style=" height: 100px; width: 100%;margin-top: 5px;"
+                            > 
+                            <span *ngIf="notes.invalid && notes.touched" class= "input-group-addon">
+                                <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+            
+              <button type="submit" (click)="updateNoteEntry(updateModelForm)"  
+              
+              [disabled] = "getnote.form.invalid" class="btn btn-block btn-success">Update</button>  
+            </div>
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+
+  
