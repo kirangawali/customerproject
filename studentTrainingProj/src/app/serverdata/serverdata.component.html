@@ -1,0 +1,56 @@
+<p>serverdata works!</p>
+{{message}}
+
+<button (click)= "getEmp()">employee</button>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    name
+                </td>
+                <td>
+                    age
+                </td>
+            </tr>
+        </thead>
+        
+        <tbody>
+                <tr *ngFor = "let i of emp">
+                    <td>{{i.name}}</td>
+                    <td>{{i.Age}}</td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+
+
+<button (click)= "getProd()">product</button>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    name
+                </td>
+                <td>
+                    age
+                </td>
+                
+                <td>
+                    product
+                </td>
+            </tr>
+        </thead>
+        
+        <tbody>
+                <tr *ngFor = "let i of product">
+                    <td>{{i.name}}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{i.fees}}</td>
+                </tr>
+            </tbody>
+    </table>
+</div>
