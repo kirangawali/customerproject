@@ -1,6 +1,8 @@
 package com.csi.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,15 +37,26 @@ public class CustomerController {
 	{
 		return customerDaoImpl.getCustomerListbyID(customerId);
 	}
-
-	@PostMapping("/savedata")
+  
+	/* @PostMapping("/savedata")
 	public String saveCustomerData(@RequestBody Customer customer) {
-
+		System.out.println("********************vaishali*******" + customer.toString());
 		customerDaoImpl.saveCustomerData(customer);
 
 		return "Data save successfully";
 
-	}
+	} */
+	
+	 @PostMapping("/savedata")
+	public List<Customer> saveCustomerData(@RequestBody Customer customer) {
+		System.out.println("********************vaishali*******" + customer.toString());
+		customerDaoImpl.saveCustomerData(customer);
+		 Map<String,String> r = new  HashMap<String,String>();
+		 r.put("msg" , "Data Sava Successfully");
+		 	return customerDaoImpl.getCustomerList(); 
+		
+
+	} 
 
 	@PutMapping("/updatedata/{customerId}")
 	public String updateCustomerData(@PathVariable("customerId") int customerId, @RequestBody Customer customer) {
@@ -53,7 +66,9 @@ public class CustomerController {
 
 	@DeleteMapping("/deletedata/{customerId}")
 	public String deleteCustomerData(@PathVariable("customerId") int customerId) {
+		System.out.println("hello world" +customerId );
 		customerDaoImpl.deleteCustomerData(customerId);
+		
 		return "delete data successfully";
 	}
 }

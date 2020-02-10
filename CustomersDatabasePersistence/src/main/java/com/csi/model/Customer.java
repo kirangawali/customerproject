@@ -14,6 +14,12 @@ import lombok.Setter;
 @Component
 public class Customer {
 
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerAge=" + customerAge
+				+ ", customerAddress=" + customerAddress + ", customerContactNumber=" + customerContactNumber + "]";
+	}
+
 	@Id
 	@GeneratedValue
 	private int customerId;
