@@ -1,0 +1,93 @@
+<p>showcustomer works!</p>
+
+<p>login works!</p>
+ 
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+      <div class="col-md-6 mx-auto">  
+        <div class="card mx-4">  
+          <div class="card-body p-4"> 
+             <!--  {{logIn.value | json}}  -->  
+            <form #CustomerD = "ngForm" >  
+              <div class="form-group">
+              <h1 style="text-align:center">Customer Entry</h1>    
+              
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="customerId"  
+                            name="customerIdDisplay"
+                            required
+                            [(ngModel)]="customerModelForm.customerId"
+                            #customerId="ngModel"
+                            [class.is-invalid]="customerId.invalid && customerId.touched"
+                            pattern="[a-zA-Z0-9 ]*"  
+                            > 
+                            <span *ngIf="customerId.invalid && customerId.touched" class= "input-group-addon">
+                            <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>           
+                </div> 
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="customerName"  
+                            name="customerNameDisplay"
+                            required
+                            [(ngModel)]="customerModelForm.customerName"
+                            #customerName="ngModel"
+                            [class.is-invalid]="customerName.invalid && customerName.touched"
+                            pattern="[a-zA-Z ]*"  
+                            > 
+                            <span *ngIf="customerName.invalid && customerName.touched" class= "input-group-addon">
+                            <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+                
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="customerAge"  
+                            name="customerAgeDisplay"
+                            required
+                            [(ngModel)]="customerModelForm.customerAge"
+                            #customerAge="ngModel"
+                            [class.is-invalid]="customerAge.invalid && customerAge.touched"
+                            pattern="[a-zA-Z 0-9]*"  
+                            > 
+                            <span *ngIf="customerAge.invalid && customerAge.touched" class= "input-group-addon">
+                             <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+                
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="customerAddress"  
+                            name="customerAddressDisplay"
+                            required
+                            [(ngModel)]="customerModelForm.customerAddress"
+                            #customerAddress="ngModel"
+                            [class.is-invalid]="customerAddress.invalid && customerAddress.touched"
+                            pattern="[a-zA-Z ]*"  
+                            > 
+                            <span *ngIf="customerAddress.invalid && customerAddress.touched" class= "input-group-addon">
+                            <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+                
+                <div class="input-group mb-3">   
+                    <input type="text" class="form-control" placeholder="customerContactNumber"  
+                            name="customerContactNumberDisplay"
+                            required
+                            [(ngModel)]="customerModelForm.customerContactNumber"
+                            #customerContactNumber="ngModel"
+                            [class.is-invalid]="customerContactNumber.invalid && customerContactNumber.touched"
+                            pattern="[a-zA-Z 0-9]*"  
+                            > 
+                            <span *ngIf="customerContactNumber.invalid && customerContactNumber.touched" class= "input-group-addon">
+                             <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>
+                            
+                </div>  
+
+              <button type="submit" (click)="customerEntry()"  
+              
+              [disabled] = "CustomerD.form.invalid" class="btn btn-block btn-success">Confirm</button>  
+            </div>
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+

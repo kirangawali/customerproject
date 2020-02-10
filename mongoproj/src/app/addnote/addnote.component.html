@@ -1,0 +1,31 @@
+
+<h3>{{userName}}</h3>
+<div style="padding-top: 5%;">
+    
+<h6 style="margin-top: 25px;text-align: center;font-family: Georgia, 'Times New Roman', Times, serif;">please add your notes below</h6>
+<input type="text"  style="border: 1px solid black; height: 150px; width: 50%;margin-left: 26%;margin-top: 30px;"> 
+<button  class="btn btn-block btn-success" type="submit" (click)="notesData()" style="width: 20%; margin-left: 40%; margin-top: 20px;">Submit</button>
+</div>
+<br>
+<div class="" style="height:500px;overflow-y: auto; border: 1px solid black ; padding-top: 3%;">
+    <table style="width:100%;" class="table  table-stripped">
+    <tbody>
+        <tr *ngFor = "let i of notesDataa">
+           <td  style="width:10% ;padding-left: 5%" class="tdData">
+                   {{i.userName}}
+            </td>
+            <td style="width:10%"  class="tdData">
+            {{i.notes}}
+            </td>
+            
+            <td  style="width:10%">
+               <!--  <button class="btn btn-danger" (click)="deleteEntry(i.customerId)">Delete</button> -->
+               
+            </td>
+    </tr>
+
+    </tbody>
+
+
+</table>
+<div>

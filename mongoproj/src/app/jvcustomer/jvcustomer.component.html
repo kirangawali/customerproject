@@ -1,0 +1,154 @@
+
+
+<div class="panel panel-default card-5">
+    <div class=""> 
+        <div class="panel-heading main-panel card-5" >
+         <div style="padding-left:10px; color: black;">
+             Client Section
+         </div>
+           
+         </div>
+
+         <div class="panel-heading custom-panel card-5">  <div >
+             
+
+                <table style="width:100%;" class="table  table-stripped">
+                    <thead>
+                        <tr style="background-color: gainsboro">
+                                <td  style="width:10% ; padding-left: 2%;" class="tdCss">
+                                    customerId
+                                </td>
+                                <td style="width:10%" class="tdCss">
+                                    customerName
+            
+                                </td>
+                                <td  style="width:10%" class="tdCss">
+                                    customerAge
+                                </td>
+                                <td style="width:15% ; " class="tdCss">
+                                    customerAddress
+            
+                                </td>
+                                <td style="width:15% ;  " class="tdCss">
+                                    customerContactNumber
+                                </td>
+                                <td  style="width:10%">
+                                    
+                               </td>
+                        </tr>
+                    </thead>
+                </table>
+                </div>
+                <div class="" style="height:500px;overflow-y: auto; border: 1px solid black">
+                    <table style="width:100%;" class="table  table-stripped">
+                    <tbody>
+                        <tr *ngFor="let i of customerData">
+                            <td  style="width:10% ;padding-left: 5%" class="tdData">
+                                   {{ i.customerId}}
+                            </td>
+                            <td style="width:10%"  class="tdData">
+                                {{ i.customerName}}
+                            </td>
+                            <td  style="width:10%  "   class="  tdData">
+                                {{ i.customerAge}}
+                            </td>
+                            <td style="width:15%"  class="tdData">
+                                {{ i.customerAddress}}
+            
+                            </td>
+                            <td style="width:15%"  class="tdData"> 
+                                {{ i.customerContactNumber}}
+                            </td>
+                            <td  style="width:10%">
+                               <!--  <button class="btn btn-danger" (click)="deleteEntry(i.customerId)">Delete</button> -->
+                               <button class="btn btn-danger" (click)="deleteEntry(i)">Delete</button> 
+                            </td>
+                    </tr>
+            
+                    </tbody>
+            
+            
+                </table>
+              <div>
+         </div>
+    </div> 
+  </div>
+  <br>
+  <p>showcustomer works!</p>
+
+  <p>login works!</p>
+   
+  <div class="container" style="padding-top:40px;">  
+      <div class="row">  
+        <div class="col-md-6 mx-auto">  
+          <div class="card mx-4">  
+            <div class="card-body p-4"> 
+               <!--  {{logIn.value | json}}  -->  
+              <form #CustomerD = "ngForm" >  
+                <div class="form-group">
+                <h1 style="text-align:center">Update Entry</h1>    
+                
+                  <div class="input-group mb-3">   
+                      <input type="text" class="form-control" placeholder="customerId"  
+                              name="customerIdDisplay"
+                              required
+                              [(ngModel)]="customerForm.customerId"
+                              #customerId="ngModel"
+                              pattern="[a-zA-Z0-9 ]*"  
+                              >          
+                  </div> 
+                  <div class="input-group mb-3">   
+                      <input type="text" class="form-control" placeholder="customerNewName"  
+                              name="customerNameDisplay"
+                              required
+                              [(ngModel)]="customerForm.customerName"
+                              #customerName="ngModel"
+                              pattern="[a-zA-Z ]*"  
+                      >
+                  </div>  
+                  
+                  <div class="input-group mb-3">   
+                      <input type="text" class="form-control" placeholder="customerNewAge"  
+                              name="customerAgeDisplay"
+                              required
+                              [(ngModel)]="customerForm.customerAge"
+                              #customerAge="ngModel"
+                              pattern="[a-zA-Z 0-9]*"  
+                              > 
+                              
+                  </div>  
+                  
+                  <div class="input-group mb-3">   
+                      <input type="text" class="form-control" placeholder="customerNewAddress"  
+                              name="customerAddressDisplay"
+                              required
+                              [(ngModel)]="customerForm.customerAddress"
+                              #customerAddress="ngModel"
+        
+                              pattern="[a-zA-Z ]*"  
+                              > 
+                                 
+                  </div>  
+                  
+                  <div class="input-group mb-3">   
+                      <input type="text" class="form-control" placeholder="customerNewContactNumber"  
+                              name="customerContactNumberDisplay"
+                              required
+                              [(ngModel)]="customerForm.customerContactNumber"
+                              #customerContactNumber="ngModel"
+                              pattern="[a-zA-Z 0-9]*"  
+                              > 
+                 </div>  
+  
+                <button type="submit" (click)="updateCustomerEntry()"  
+                
+                [disabled] = "CustomerD.form.invalid" class="btn btn-block btn-success">Update</button>  
+              </div>
+              </form>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  
+  

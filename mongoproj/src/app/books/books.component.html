@@ -1,0 +1,66 @@
+
+ 
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+      <div class="col-md-6 mx-auto">  
+        <div class="card mx-4">  
+          <div class="card-body p-4"> 
+             <!--  {{logIn.value | json}}  -->  
+            <form #booksS = "ngForm" >  
+              <div class="form-group">
+              <h1 style="text-align:center">BOOK BOOKS!</h1>  
+              
+              <div class="input-group mb-4">  
+                <select class="custom-select"
+                        name="bookDisplay"
+                        required
+                        [(ngModel)]="bookModelForm.category"
+                        #bookName="ngModel"
+                        [class.is-invalid]="bookName.invalid && bookName.touched"
+                >
+                        <option value="">Select </option>
+                        <option *ngFor="let i of userCategory">{{i}} </option>
+
+                </select> 
+          </div>  
+              
+                
+              
+              <div class="input-group mb-3">  
+                    <input type="text" class="form-control" placeholder="author"  
+                           name="authorDisplay"
+                           required  
+                           [(ngModel)]="bookModelForm.author"
+                           #author = "ngModel"
+                           [class.is-invalid]="author.invalid && author.touched"
+                    >
+                    
+                    <span *ngIf="author.invalid && author.touched" class= "input-group-addon">
+                        <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>  
+              </div>  
+
+              <div class="input-group mb-3">  
+                <input type="text" class="form-control" placeholder="book"  
+                       name="bookDisplay"
+                       required  
+                       [(ngModel)]="bookModelForm.bookName"
+                       #bookN = "ngModel"
+                       [class.is-invalid]="bookN.invalid && bookN.touched"
+                >
+                
+                <span *ngIf="bookN.invalid && bookN.touched" class= "input-group-addon">
+                    <i class="fa fa-fw fa-info-circle text-danger " style="height:10px;" aria-hidden="true" ></i> </span>  
+          </div> 
+               
+
+              
+              <button type="submit" (click)="booking()"  
+              
+              [disabled] = "booksS.form.invalid" class="btn btn-block btn-success">Confirm</button>  
+            </div>
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
